@@ -3,180 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Youssef Style | Men's Fashion</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Youssef Style | Modern Men's Fashion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #000;
-      color: #fff;
-    }
-    header {
-      background: #111;
-      padding: 20px;
-      text-align: center;
-    }
-    header img {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 2px solid #FFD700;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background: #222;
-      padding: 10px;
-    }
-    nav a {
-      color: #FFD700;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #fff;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    .card {
-      background: #1a1a1a;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 0 10px rgba(255,215,0,0.3);
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.03);
-    }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .price-tag {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: #FFD700;
-      color: #000;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    .rating {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      color: #FFD700;
-    }
-    .social-icons {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .social-icons i {
-      color: #fff;
-      background: #FFD700;
-      padding: 10px;
-      border-radius: 50%;
-      margin: 0 10px;
-      transition: 0.3s;
-    }
-    .social-icons i:hover {
-      transform: scale(1.2);
-    }
-    .testimonials {
-      background: #111;
-      padding: 40px;
-    }
-    .testimonial {
-      background: #222;
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 10px;
-      max-width: 600px;
-    }
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 20px;
-      color: #666;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Rubik',sans-serif; background:#000; color:#fff; }
+    header { background:#111; padding:20px; text-align:center; position:sticky; top:0; z-index:100; }
+    header img { width:80px; height:80px; border-radius:50%; border:3px solid #FFD700; }
+    header h1 { color:#FFD700; margin:10px 0; }
+    nav { display:flex; justify-content:center; gap:20px; background:#222; padding:10px 0; }
+    nav a { color:#fff; text-decoration:none; font-weight:bold; transition:0.3s; }
+    nav a:hover { color:#FFD700; }
+    .section { padding:60px 20px; animation:fadeInUp 0.8s ease both; }
+    .section-title { text-align:center; font-size:2rem; color:#FFD700; margin-bottom:30px; }
+    .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+    .card { background:#1a1a1a; border-radius:12px; overflow:hidden; position:relative; transition:transform 0.3s,box-shadow 0.3s; }
+    .card:hover { transform:scale(1.05); box-shadow:0 10px 20px rgba(255,215,0,0.4); }
+    .card img { width:100%; height:180px; object-fit:cover; }
+    .price-tag { position:absolute; bottom:10px; right:10px; background:#FFD700; color:#000; padding:4px 8px; border-radius:6px; font-weight:bold; }
+    .rating { position:absolute; top:10px; right:10px; color:#FFD700; }
+    .like { position:absolute; top:10px; left:10px; color:#fff; font-size:1.2rem; cursor:pointer; transition:color 0.3s; }
+    .like.liked { color:red; }
+    .add-cart { position:absolute; bottom:10px; left:10px; background:#FFD700; color:#000; border:none; padding:5px 8px; border-radius:6px; cursor:pointer; font-size:0.9rem; }
+    .add-cart:hover { background:#fff; }
+    .testimonial { background:#222; border-radius:10px; padding:20px; max-width:600px; margin:20px auto; position:relative; }
+    .testimonial img { width:60px; height:60px; border-radius:50%; position:absolute; top:-30px; left:50%; transform:translateX(-50%); border:3px solid #FFD700; }
+    .testimonial p { margin-top:40px; font-style:italic; }
+    .testimonial .stars { display:flex; justify-content:center; margin-top:10px; color:#FFD700; }
+    .social { text-align:center; margin:40px 0; }
+    .social a { color:#FFD700; margin:0 10px; font-size:1.5rem; transition:transform 0.3s; }
+    .social a:hover { transform:scale(1.2); color:#fff; }
+    .cart-icon { position:fixed; top:20px; right:20px; background:#FFD700; color:#000; padding:10px; border-radius:50%; font-size:1.2rem; cursor:pointer; z-index:100; }
+    .cart-count { position:absolute; top:-5px; right:-5px; background:red; color:#fff; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; }
+    footer { background:#111; text-align:center; padding:20px; color:#888; }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);} }
   </style>
 </head>
 <body>
-  <header>
-    <img src="your-profile.jpg" alt="Profile">
-    <h1>Youssef Style</h1>
-    <p>Men's Fashion Made Stylish</p>
-  </header>
+  <header><img src="your-profile.jpg" alt="Profile"><h1>Youssef Style</h1></header>
+  <nav><a href="#home">Home</a><a href="#tshirts">T-Shirts</a><a href="#pants">Pants</a><a href="#jackets">Jackets</a><a href="#reviews">Reviews</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
 
-  <nav>
-    <a href="#tshirts">T-Shirts</a>
-    <a href="#pants">Pants</a>
-    <a href="#jackets">Jackets</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#cart">Cart</a>
-  </nav>
+  <div class="cart-icon"><i class="fas fa-shopping-cart"></i><div class="cart-count">0</div></div>
 
-  <section id="tshirts">
-    <h2 style="text-align:center; color:#FFD700;">T-Shirts</h2>
-    <div class="products">
-      <div class="card"><img src="tshirt1.jpg"><div class="rating">★★★★★</div><div class="price-tag">$20</div></div>
-      <div class="card"><img src="tshirt2.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$18</div></div>
-      <div class="card"><img src="tshirt3.jpg"><div class="rating">★★★★★</div><div class="price-tag">$22</div></div>
-      <div class="card"><img src="tshirt4.jpg"><div class="rating">★★★☆☆</div><div class="price-tag">$17</div></div>
-      <div class="card"><img src="tshirt5.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$19</div></div>
-    </div>
+  <section id="home" class="section"><img src="hero.jpg" alt="Hero" style="width:100%;border-radius:12px;"><p style="text-align:center;margin-top:20px;">Your destination for modern men's fashion.</p></section>
+
+  <section id="tshirts" class="section"><h2 class="section-title">T-Shirts</h2><div class="products">
+    <div class="card"><i class="fas fa-heart like"></i><img src="tshirt1.jpg"><div class="rating">★★★★★</div><div class="price-tag">$18</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="tshirt2.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$20</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="tshirt3.jpg"><div class="rating">★★★★★</div><div class="price-tag">$22</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="tshirt4.jpg"><div class="rating">★★★☆☆</div><div class="price-tag">$19</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="tshirt5.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$21</div><button class="add-cart">Add</button></div>
+  </div></section>
+
+  <section id="pants" class="section"><h2 class="section-title">Pants</h2><div class="products">
+    <div class="card"><i class="fas fa-heart like"></i><img src="pants1.jpg"><div class="rating">★★★★★</div><div class="price-tag">$30</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="pants2.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$28</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="pants3.jpg"><div class="rating">★★★☆☆</div><div class="price-tag">$32</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="pants4.jpg"><div class="rating">★★★★★</div><div class="price-tag">$35</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="pants5.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$33</div><button class="add-cart">Add</button></div>
+  </div></section>
+
+  <section id="jackets" class="section"><h2 class="section-title">Jackets</h2><div class="products">
+    <div class="card"><i class="fas fa-heart like"></i><img src="jacket1.jpg"><div class="rating">★★★★★</div><div class="price-tag">$50</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="jacket2.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$55</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="jacket3.jpg"><div class="rating">★★★☆☆</div><div class="price-tag">$48</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="jacket4.jpg"><div class="rating">★★★★★</div><div class="price-tag">$60</div><button class="add-cart">Add</button></div>
+    <div class="card"><i class="fas fa-heart like"></i><img src="jacket5.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$58</div><button class="add-cart">Add</button></div>
+  </div></section>
+
+  <section id="reviews" class="section testimonials"><h2 class="section-title">Customer Reviews</h2>
+    <div class="testimonial"><img src="client1.jpg"><p>"Amazing quality and quick delivery."</p><div class="stars">★★★★★</div></div>
+    <div class="testimonial"><img src="client2.jpg"><p>"Best prices and great customer service."</p><div class="stars">★★★★☆</div></div>
   </section>
 
-  <section id="pants">
-    <h2 style="text-align:center; color:#FFD700;">Pants</h2>
-    <div class="products">
-      <div class="card"><img src="pants1.jpg"><div class="rating">★★★★★</div><div class="price-tag">$25</div></div>
-      <div class="card"><img src="pants2.jpg"><div class="rating">★★★☆☆</div><div class="price-tag">$23</div></div>
-      <div class="card"><img src="pants3.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$30</div></div>
-      <div class="card"><img src="pants4.jpg"><div class="rating">★★★★★</div><div class="price-tag">$28</div></div>
-      <div class="card"><img src="pants5.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$26</div></div>
-    </div>
+  <section id="about" class="section"><h2 class="section-title">About Us</h2><p style="max-width:800px;margin: auto;line-height:1.6;">Youssef Style delivers the latest in men's fashion with unbeatable quality and service. Join our community of style enthusiasts and upgrade your wardrobe today.</p></section>
+
+  <section id="contact" class="section social"><h2 class="section-title">Connect With Us</h2>
+    <a href="https://wa.me/your-number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
   </section>
 
-  <section id="jackets">
-    <h2 style="text-align:center; color:#FFD700;">Jackets</h2>
-    <div class="products">
-      <div class="card"><img src="jacket1.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$35</div></div>
-      <div class="card"><img src="jacket2.jpg"><div class="rating">★★★★★</div><div class="price-tag">$40</div></div>
-      <div class="card"><img src="jacket3.jpg"><div class="rating">★★★☆☆</div><div class="price-tag">$38</div></div>
-      <div class="card"><img src="jacket4.jpg"><div class="rating">★★★★☆</div><div class="price-tag">$42</div></div>
-      <div class="card"><img src="jacket5.jpg"><div class="rating">★★★★★</div><div class="price-tag">$45</div></div>
-    </div>
-  </section>
+  <footer><p>© 2025 Youssef Style | All Rights Reserved</p></footer>
 
-  <section class="testimonials" id="reviews">
-    <h2 style="text-align:center; color:#FFD700;">Customer Reviews</h2>
-    <div class="testimonial">
-      <p>"Great quality and fast delivery!" - Ahmed</p>
-    </div>
-    <div class="testimonial">
-      <p>"Loved the jackets, very stylish." - Salma</p>
-    </div>
-  </section>
-
-  <div class="social-icons">
-    <a href="https://wa.me"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
-    <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Youssef Style. All rights reserved.</p>
-  </footer>
+  <script>
+    document.querySelectorAll('.like').forEach(btn => btn.addEventListener('click', () => btn.classList.toggle('liked')));
+    const cartCount = document.querySelector('.cart-count'); let count = 0;
+    document.querySelectorAll('.add-cart').forEach(btn => btn.addEventListener('click', () => cartCount.textContent = ++count));
+  </script>
 </body>
 </html>
